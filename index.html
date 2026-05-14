@@ -132,4 +132,55 @@ experience_years: "১০+"
 
         <!-- Footer Contact -->
         <section id="contact" class="py-10 bg-slate-900 text-white text-center">
-            <p>© <span id="
+            <p>© <span id="footer-year"></span> ডঃ জুবায়ের - সর্বস্বত্ব সংরক্ষিত।</p>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // ফাইল থেকে ডেটা পড়া
+                const response = await fetch(window.location.href);
+                const text = await response.text();
+                
+                // YAML অংশ খুঁজে বের করা
+                const yamlMatch = text.match(/---\s*([\s\S]*?)\s*---/);
+                if (yamlMatch) {
+                    const data = jsyaml.load(yamlMatch[1]);
+
+                    // UI আপডেট করা
+                    document.getElementById('page-title').innerText = data.title;
+                    document.getElementById('nav-brand').innerText = data.title;
+                    document.getElementById('hero-title').innerText = data.hero_headline;
+                    document.getElementById('hero-desc').innerText = data.hero_subtext;
+                    document.getElementById('emergency-phone').innerText = data.emergency_contact;
+                    document.getElementById('stat-patients').innerText = data.patients_served;
+                    document.getElementById('stat-exp').innerText = data.experience_years;
+                    document.getElementById('doc-img').src = data.doctor_image;
+                    document.getElementById('footer-year').innerText = new Date().getFullYear();
+                    
+                    // লোড হওয়ার পর পেজ দেখানো
+                    document.body.classList.add('loaded');
+                    AOS.init({ duration: 1000, once: true });
+                }
+            } catch (error) {
+                console.error("YAML Parsing Error:", error);
+                document.body.classList.add('loaded'); // এরর হলেও পেজ দেখাবে
+            }
+        });
+
+        // Netlify Identity
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
