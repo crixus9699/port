@@ -1,37 +1,23 @@
 backend:
   name: git-gateway
-  branch: main # Ensure this matches your GitHub branch
+  branch: main # আপনার GitHub branch নাম (সাধারণত main বা master)
 
-media_folder: "images" # Where uploaded images will go
-public_folder: "/images"
+media_folder: "images" # ছবিগুলো যেখানে সেভ হবে
+public_folder: "images"
 
 collections:
   - name: "pages"
     label: "Pages"
-    delete: false # Prevent accidental deletion of index.html
     files:
-      - name: "home"
-        label: "Home Page Content"
-        file: "index.html"
-        format: "yaml-frontmatter"
+      - label: "Home Page"
+        name: "home"
+        file: "index.html" # এটিই আমাদের মূল ফাইল
+        format: "frontmatter" # YAML Frontmatter ফরম্যাট ব্যবহার করবে
         fields:
-          - { label: "Page Browser Title", name: "title", widget: "string" }
-          - { label: "Emergency Contact Number", name: "emergency_contact", widget: "string" }
-          - { label: "Doctor Profile Image", name: "doctor_image", widget: "image" }
+          - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Hero Headline", name: "hero_headline", widget: "string" }
           - { label: "Hero Subtext", name: "hero_subtext", widget: "text" }
-          
-          - label: "Stats Counter"
-            name: "stats"
-            widget: "list"
-            fields:
-              - { label: "Label", name: "label", widget: "string" }
-              - { label: "Value (e.g. 10+)", name: "value", widget: "string" }
-
-          - label: "Services Grid"
-            name: "services"
-            widget: "list"
-            fields:
-              - { label: "Service Title", name: "title", widget: "string" }
-              - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Emoji Icon", name: "icon", widget: "string" }
+          - { label: "Doctor Profile Image", name: "doctor_image", widget: "image" }
+          - { label: "Emergency Contact", name: "emergency_contact", widget: "string" }
+          - { label: "Patients Served Count", name: "patients_served", widget: "string" }
+          - { label: "Experience Years", name: "experience_years", widget: "string" }
