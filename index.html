@@ -7,215 +7,126 @@ emergency_contact: "+৮৮০ ১৭০০-০০০০০০"
 patients_served: "৫০০০+"
 experience_years: "১০+"
 ---
+<style>
+    /* ১. টেক্সট লুকানোর সবচেয়ে পাওয়ারফুল ট্রিক */
+    html { color: transparent !important; background: white !important; }
+    body { color: transparent !important; }
+    
+    /* ২. ওয়েবসাইট লোড হওয়ার পর যা দেখা যাবে */
+    #site-wrapper { 
+        color: #1e293b !important; 
+        display: none; 
+        background: #f8fafc;
+    }
+    
+    /* লোডার স্ক্রিন */
+    #loading-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: white; z-index: 999999; display: flex;
+        justify-content: center; align-items: center; color: #2563eb;
+        font-family: sans-serif; font-size: 20px; font-weight: bold;
+    }
+</style>
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>প্রসেসিং...</title>
-    
-    <!-- Fonts & Scripts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <style>
-        body { font-family: 'Hind Siliguri', sans-serif; margin: 0; padding: 0; }
-        
-        /* লোডার স্টাইল: এটি YAML টেক্সটকে ঢেকে রাখবে */
-        #loader {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: #ffffff;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            z-index: 9999;
-        }
-
-        .spinner {
-            width: 50px; height: 50px;
-            border: 5px solid #e2e8f0;
-            border-top: 5px solid #2563eb;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        #main-content { display: none; }
-        
-        /* Glassmorphism */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-        }
-    </style>
 </head>
-<body class="bg-slate-50">
+<body>
 
-    <!-- Loading Screen -->
-    <div id="loader">
-        <div class="spinner"></div>
-        <p class="mt-4 text-blue-600 font-bold">লোড হচ্ছে...</p>
-    </div>
+    <div id="loading-overlay">লোড হচ্ছে...</div>
 
-    <!-- Main Website Content -->
-    <div id="main-content">
+    <div id="site-wrapper">
         <!-- Navigation -->
-        <nav class="fixed w-full z-50 glass-nav">
+        <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b">
             <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-700" id="nav-brand">ডাক্তার পোর্টফোলিও</div>
-                <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
-                    <a href="#hero" class="hover:text-blue-600">হোম</a>
-                    <a href="#services" class="hover:text-blue-600">সেবাসমূহ</a>
-                    <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 shadow-lg shadow-blue-200 transition">সিরিয়াল বুকিং</a>
-                </div>
+                <div class="text-2xl font-bold text-blue-700" id="nav-brand">ডক্টর পোর্টফোলিও</div>
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold">সিরিয়াল নিন</a>
             </div>
         </nav>
 
-        <!-- Hero -->
-        <section id="hero" class="pt-40 pb-20 px-6">
+        <!-- Hero Section -->
+        <section class="pt-40 pb-20 px-6">
             <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-up">
-                    <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight mb-6"></h1>
-                    <p id="hero-desc" class="text-lg text-slate-600 mb-10"></p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition">যোগাযোগ করুন</a>
-                        <div class="flex items-center space-x-3 bg-white p-3 rounded-2xl shadow-sm border border-slate-100">
-                            <span class="text-2xl">📞</span>
-                            <div>
-                                <p class="text-xs text-slate-400 font-bold uppercase">Emergency</p>
-                                <p id="emergency-phone" class="font-bold text-blue-700"></p>
-                            </div>
+                <div data-aos="fade-right">
+                    <h1 id="hero-title" class="text-4xl md:text-6xl font-bold text-slate-900 mb-6"></h1>
+                    <p id="hero-desc" class="text-lg text-slate-600 mb-8"></p>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-4 rounded-2xl">
+                            <p class="text-xs font-bold text-blue-600 uppercase">জরুরী যোগাযোগ</p>
+                            <p id="emergency-phone" class="text-xl font-bold text-slate-900"></p>
                         </div>
                     </div>
                 </div>
-                <div class="relative" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-blue-600 rounded-3xl rotate-3 scale-95 opacity-10"></div>
-                    <img id="doc-img" src="" alt="Doctor" class="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover">
+                <div data-aos="zoom-in">
+                    <img id="doc-img" src="" class="rounded-3xl shadow-2xl w-full h-[500px] object-cover">
                 </div>
             </div>
         </section>
 
         <!-- Stats -->
-        <section class="max-w-7xl mx-auto px-6 mb-20">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center border border-slate-100">
-                    <h3 id="stat-patients" class="text-3xl font-extrabold text-blue-600 mb-2"></h3>
-                    <p class="text-slate-500 font-medium">সুস্থ হওয়া রোগী</p>
+        <section class="max-w-7xl mx-auto px-6 pb-20">
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border text-center">
+                    <h3 id="stat-patients" class="text-4xl font-bold text-blue-600"></h3>
+                    <p class="text-slate-500">রোগী দেখেছেন</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center border border-slate-100">
-                    <h3 id="stat-exp" class="text-3xl font-extrabold text-blue-600 mb-2"></h3>
-                    <p class="text-slate-500 font-medium">অভিজ্ঞতা</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center border border-slate-100">
-                    <h3 class="text-3xl font-extrabold text-blue-600 mb-2">২৪/৭</h3>
-                    <p class="text-slate-500 font-medium">সেবা প্রদান</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm text-center border border-slate-100">
-                    <h3 class="text-3xl font-extrabold text-blue-600 mb-2">১০০%</h3>
-                    <p class="text-slate-500 font-medium">সততা</p>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border text-center">
+                    <h3 id="stat-exp" class="text-4xl font-bold text-blue-600"></h3>
+                    <p class="text-slate-500">অভিজ্ঞতা</p>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section id="services" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">বিশেষ সেবাসমূহ</h2>
-                    <div class="h-1.5 w-20 bg-blue-600 mx-auto rounded-full"></div>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Service 1 -->
-                    <div class="group p-10 rounded-3xl border border-slate-100 hover:bg-blue-600 transition-all duration-500">
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition">🫀</div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">হৃদরোগ বিশেষজ্ঞ</h3>
-                        <p class="text-slate-500 group-hover:text-blue-100">উন্নত প্রযুক্তির সাহায্যে হৃদরোগের জটিল সমস্যার নির্ভুল সমাধান।</p>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="group p-10 rounded-3xl border border-slate-100 hover:bg-blue-600 transition-all duration-500">
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition">👨‍⚕️</div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">পরামর্শ ও চেকআপ</h3>
-                        <p class="text-slate-500 group-hover:text-blue-100">নিয়মিত স্বাস্থ্য পরীক্ষা এবং সঠিক জীবনযাত্রার গাইডলাইন।</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="group p-10 rounded-3xl border border-slate-100 hover:bg-blue-600 transition-all duration-500">
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition">📱</div>
-                        <h3 class="text-xl font-bold mb-4 group-hover:text-white">টেলিমেডিসিন</h3>
-                        <p class="text-slate-500 group-hover:text-blue-100">বাসায় বসেই অনলাইনে ভিডিও কলের মাধ্যমে বিশেষজ্ঞ পরামর্শ।</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer id="contact" class="bg-slate-900 py-12 text-center text-slate-400">
-            <div class="max-w-7xl mx-auto px-6">
-                <p class="mb-4">চেম্বার: ১০২, গ্রিন রোড, ধানমন্ডি, ঢাকা</p>
-                <p>© <span id="year"></span> <span id="footer-name"></span>. সর্বস্বত্ব সংরক্ষিত।</p>
-            </div>
+        <footer class="bg-slate-900 text-white py-10 text-center">
+            <p id="footer-text"></p>
         </footer>
     </div>
 
-    <!-- Logic Script -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        async function init() {
+        window.addEventListener('DOMContentLoaded', async () => {
             try {
-                // Fetch the file content to parse YAML
                 const response = await fetch(window.location.href);
                 const text = await response.text();
+                const yamlMatch = text.match(/---\s*([\s\S]*?)\s*---/);
                 
-                // Extract YAML Frontmatter
-                const yamlRegex = /^---\s*([\s\S]*?)\s*---/;
-                const match = text.match(yamlRegex);
-                
-                if (match) {
-                    const data = jsyaml.load(match[1]);
+                if (yamlMatch) {
+                    const data = jsyaml.load(yamlMatch[1]);
 
-                    // Inject Data into DOM
+                    // ডেটা ইনজেকশন
                     document.title = data.title;
                     document.getElementById('nav-brand').innerText = data.title;
-                    document.getElementById('footer-name').innerText = data.title;
                     document.getElementById('hero-title').innerText = data.hero_headline;
                     document.getElementById('hero-desc').innerText = data.hero_subtext;
                     document.getElementById('emergency-phone').innerText = data.emergency_contact;
                     document.getElementById('stat-patients').innerText = data.patients_served;
                     document.getElementById('stat-exp').innerText = data.experience_years;
                     document.getElementById('doc-img').src = data.doctor_image;
-                    document.getElementById('year').innerText = new Date().getFullYear();
+                    document.getElementById('footer-text').innerText = `© ${new Date().getFullYear()} ${data.title}`;
 
-                    // Hide Loader and Show Content
-                    document.getElementById('loader').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'block';
+                    // ওয়েবসাইট দৃশ্যমান করা এবং YAML টেক্সট রিমুভ করা
+                    document.documentElement.style.color = "initial";
+                    document.documentElement.style.background = "none";
+                    document.body.style.color = "initial";
                     
-                    // Trigger Animations
-                    AOS.init({ duration: 800, once: true });
+                    document.getElementById('loading-overlay').style.display = 'none';
+                    document.getElementById('site-wrapper').style.display = 'block';
+                    
+                    AOS.init();
                 }
             } catch (e) {
-                console.error("Initialization Failed:", e);
-                // Fail-safe: show content even if YAML fails
-                document.getElementById('loader').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
+                console.error(e);
+                document.getElementById('loading-overlay').innerText = "Error loading data.";
             }
-        }
-
-        window.onload = init;
-
-        // Netlify Identity
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
+        });
     </script>
 </body>
 </html>
