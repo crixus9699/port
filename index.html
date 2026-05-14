@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডক্টর পোর্টফোলিও</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">HealthCare</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-blue-600">হোম</a>
+                <a href="#about" class="hover:text-blue-600">আমার সম্পর্কে</a>
+                <a href="#services" class="hover:text-blue-600">সেবাসমূহ</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">অ্যাপয়েন্টমেন্ট</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">আপনার সুস্বাস্থ্যই আমাদের লক্ষ্য</h1>
+                <p class="text-lg mb-6">আমি একজন অভিজ্ঞ চিকিৎসক, আপনার এবং আপনার পরিবারের সঠিক চিকিৎসার জন্য প্রতিশ্রুতিবদ্ধ।</p>
+                <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg shadow-lg hover:bg-blue-700">যোগাযোগ করুন</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-64 h-64 bg-blue-200 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                    <img src="https://via.placeholder.com/400" alt="Doctor" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">আমার সেবাসমূহ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition">
+                <i class="fas fa-stethoscope text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">সাধারণ চিকিৎসা</h3>
+                <p>পরিবারের সবার জন্য নিয়মিত স্বাস্থ্য পরীক্ষা ও পরামর্শ।</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition">
+                <i class="fas fa-heartbeat text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">বিশেষজ্ঞ পরামর্শ</h3>
+                <p>নির্দিষ্ট জটিল সমস্যার জন্য উন্নত চিকিৎসা ও গাইডলাইন।</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition">
+                <i class="fas fa-video text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">অনলাইন চেম্বার</h3>
+                <p>বাসায় বসেই ভিডিও কলের মাধ্যমে জরুরি চিকিৎসা সেবা।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 text-center">
+        <p>&copy; ২০২৬ ডক্টর পোর্টফোলিও। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <!-- Decap CMS Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>
