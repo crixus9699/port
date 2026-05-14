@@ -1,200 +1,205 @@
 ---
-title: Dr. Alex Rivera | Specialist Cardiologist
-emergency_contact: +1 (555) 000-9999
-doctor_image: https://scontent.fdac27-1.fna.fbcdn.net/v/t39.30808-6/386195242_648195000777355_6251192707889210425_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KPgZS8_fVr4Q7kNvwFgxa92&_nc_oc=AdrmtBttTH9eQEYtS0Y9siB8EXXXLCXuqyJVjCpQo4r75kgcIsB1bNII2zJw_-NeQ0E&_nc_zt=23&_nc_ht=scontent.fdac27-1.fna&_nc_gid=meIXuYdj4p1Y3quqkEVq0A&_nc_ss=7b289&oh=00_Af5ys3wgB-MSIIF5C0E7xJdFUOPjR_21AWFMbakyc1BMjA&oe=6A0B9F10
-hero_headline: Compassionate Care for Your Heart's Health
-hero_subtext: Providing world-class cardiovascular diagnostics and personalized
-  treatment plans in the heart of New York.
-stats:
-  - label: Patients Served
-    value: 12,000+
-  - label: Years Experience
-    value: 15+
-  - label: Certifications
-    value: 25+
-services:
-  - title: Cardiac Checkup
-    desc: Comprehensive evaluation of heart function and health risk assessment.
-    icon: 💓
-  - title: Echocardiogram
-    desc: Advanced ultrasound imaging to visualize heart chambers and valves.
-    icon: 🖥️
-  - title: Heart Surgery
-    desc: Minimally invasive procedures with rapid recovery protocols.
-    icon: 🏥
+title: "Dr Mahmudul Hasan"
+hero_headline: "আপনার সুস্থতাই আমাদের মূল লক্ষ্য"
+hero_subtext: "একজন অভিজ্ঞ কার্ডিওলজিস্ট হিসেবে আমি গত ১০ বছর ধরে রোগীদের সেবা দিয়ে আসছি।"
+doctor_image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80"
+emergency_contact: "+৮৮০ ১৭০০-০০০০০০"
+patients_served: "৫০০০+"
+experience_years: "১০+"
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Portfolio</title>
-    <!-- Tailwind CSS -->
+    <title id="page-title">Loading...</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- JS-YAML for parsing frontmatter -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-    <!-- AOS Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <style>
-        body { font-family: 'Poppins', sans-serif; visibility: hidden; }
+        body { font-family: 'Hind Siliguri', sans-serif; overflow-x: hidden; }
         .glass-nav {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .medical-gradient {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
+        /* CSS to hide raw YAML frontmatter */
+        body > :first-child { display: none; }
+        #main-content { opacity: 0; transition: opacity 0.5s ease-in; }
+        #main-content.loaded { opacity: 1; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-blue-50 text-slate-800">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-sky-600 tracking-tight">Health<span class="text-slate-800">Port</span></div>
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#about" class="hover:text-sky-600 transition">About</a>
-                <a href="#services" class="hover:text-sky-600 transition">Services</a>
-                <a href="#contact" class="hover:text-sky-600 transition">Contact</a>
-                <a href="#" id="nav-emergency" class="text-red-500 font-bold"></a>
-            </div>
-            <a href="#contact" class="bg-sky-600 text-white px-6 py-2 rounded-full hover:bg-sky-700 transition shadow-lg">Book Appointment</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-20 medical-gradient overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-                <h1 id="hero-title" class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-slate-900"></h1>
-                <p id="hero-subtext" class="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed"></p>
-                <div class="flex space-x-4">
-                    <a href="#services" class="bg-sky-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition">Our Services</a>
-                    <a href="#about" class="border border-sky-600 text-sky-600 px-8 py-3 rounded-lg font-semibold hover:bg-sky-50 transition">Learn More</a>
+    <div id="main-content">
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 glass-nav">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-700 tracking-tight" id="nav-brand">ডাক্তার পোর্টফোলিও</div>
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#hero" class="hover:text-blue-600 transition">হোম</a>
+                    <a href="#services" class="hover:text-blue-600 transition">সেবাসমূহ</a>
+                    <a href="#about" class="hover:text-blue-600 transition">আমার সম্পর্কে</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">অ্যাপয়েন্টমেন্ট</a>
                 </div>
             </div>
-            <div class="relative" data-aos="zoom-in">
-                <div class="absolute -z-10 w-full h-full bg-sky-200 rounded-full blur-3xl opacity-50 transform scale-125"></div>
-                <img id="hero-img" src="" alt="Doctor" class="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]">
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="pt-32 pb-20 px-4">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 id="hero-title" class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-slate-900"></h1>
+                    <p id="hero-desc" class="text-lg text-slate-600 mb-8 leading-relaxed"></p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-200 hover:scale-105 transition">যোগাযোগ করুন</a>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-slate-500 font-semibold">জরুরী কল</p>
+                                <p id="emergency-phone" class="font-bold text-slate-900"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" data-aos="zoom-in">
+                    <div class="absolute -z-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-50 -top-10 -right-10"></div>
+                    <img id="doc-img" src="" alt="Doctor" class="rounded-3xl shadow-2xl border-8 border-white object-cover w-full h-[500px]">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Bar -->
-    <section class="py-12 bg-white border-y border-slate-100">
-        <div id="stats-container" class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
-            <!-- Stats will be injected here -->
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section id="services" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Specialized Medical Services</h2>
-            <div class="h-1 w-20 bg-sky-500 mx-auto rounded-full"></div>
-        </div>
-        <div id="services-grid" class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-            <!-- Services will be injected here -->
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-6">Experience You Can Trust</h2>
-                <p class="text-slate-600 mb-6 leading-relaxed">
-                    With over a decade of experience in complex medical environments, I specialize in providing holistic care that prioritizes the patient's long-term well-being.
-                </p>
-                <ul class="space-y-3">
-                    <li class="flex items-center space-x-3">
-                        <span class="text-sky-500 font-bold">✓</span>
-                        <span>Board Certified in Internal Medicine</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <span class="text-sky-500 font-bold">✓</span>
-                        <span>Harvard Medical School Alumni</span>
-                    </li>
-                </ul>
+        <!-- Stats Counter -->
+        <section class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="100">
+                    <p id="stat-patients" class="text-3xl font-bold text-blue-600"></p>
+                    <p class="text-slate-500">রোগী দেখেছেন</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="200">
+                    <p id="stat-exp" class="text-3xl font-bold text-blue-600"></p>
+                    <p class="text-slate-500">অভিজ্ঞতা</p>
+                </div>
+                <!-- Static Stats Example -->
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-3xl font-bold text-blue-600">২৪/৭</p>
+                    <p class="text-slate-500">অনলাইন সাপোর্ট</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="400">
+                    <p class="text-3xl font-bold text-blue-600">১০০%</p>
+                    <p class="text-slate-500">সততা</p>
+                </div>
             </div>
-            <div class="bg-slate-100 p-8 rounded-2xl" data-aos="fade-left">
-                <h3 class="text-xl font-bold mb-4">Contact Me Directly</h3>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500">
-                    <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500">
-                    <textarea placeholder="Your Message" rows="4" class="w-full p-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
-                    <button class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold hover:bg-slate-800 transition">Send Inquiry</button>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services" class="py-20 px-4">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">আমাদের বিশেষ সেবাসমূহ</h2>
+                <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">হৃদরোগ চিকিৎসা</h3>
+                    <p class="text-slate-500 leading-relaxed">উন্নত প্রযুক্তির মাধ্যমে আমরা হৃদরোগের যাবতীয় জটিল সমস্যার সমাধান দিয়ে থাকি।</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">জেনারেল চেকআপ</h3>
+                    <p class="text-slate-500 leading-relaxed">সম্পূর্ণ বডি চেকআপ এবং জীবনযাত্রার মানোন্নয়নে সঠিক পরামর্শ প্রদান করি।</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.727 2.903a2 2 0 01-1.242 1.414 2 2 0 01-2.105-.472l-1.479-1.479a2 2 0 01-.472-2.105 2 2 0 011.414-1.242l2.903-.727a2 2 0 001.414-1.96l-.477-2.387a2 2 0 00-.547-1.022L7.02 4.02L4.02 7.02"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">জরুরী সেবা</h3>
+                    <p class="text-slate-500 leading-relaxed">২৪ ঘণ্টা যেকোনো জরুরী প্রয়োজনে টেলিমেডিসিন এবং চেম্বার সাপোর্ট।</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About/Contact Section -->
+        <section id="contact" class="py-20 bg-slate-900 text-white px-4">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">সিরিয়াল নিতে আজই বুক করুন</h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed">আপনার সমস্যা আমাদের জানান, অভিজ্ঞ মেডিকেল টিম দ্রুত আপনার সাথে যোগাযোগ করবে। আমরা আপনার গোপনীয়তা বজায় রাখি।</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">📍</div>
+                            <p class="text-slate-300">চেম্বার: ১০২, গ্রিন রোড, ধানমন্ডি, ঢাকা।</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="bg-white p-8 rounded-3xl text-slate-900 shadow-2xl" onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার তথ্য পাঠানো হয়েছে।')">
+                    <div class="grid gap-4">
+                        <input type="text" placeholder="রোগীর নাম" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
+                        <input type="tel" placeholder="ফোন নম্বর" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
+                        <textarea placeholder="সমস্যার সংক্ষিপ্ত বিবরণ" rows="4" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none"></textarea>
+                        <button class="bg-blue-600 text-white p-4 rounded-xl font-bold hover:bg-blue-700 transition">অ্যাপয়েন্টমেন্ট নিশ্চিত করুন</button>
+                    </div>
                 </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <footer class="bg-slate-900 text-slate-400 py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p id="footer-text"></p>
-        </div>
-    </footer>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        /**
-         * FRONTMATTER PARSER & UI INJECTOR
-         */
-        async function initPage() {
+        document.addEventListener('DOMContentLoaded', async () => {
             try {
-                // 1. Fetch current file source to get YAML
+                // Fetch current file content to parse YAML frontmatter
                 const response = await fetch(window.location.href);
                 const text = await response.text();
                 
-                // 2. Extract YAML between ---
-                const yamlMatch = text.match(/^---([\s\S]+?)---/);
-                if (!yamlMatch) throw new Error("Frontmatter not found");
-                
-                const data = jsyaml.load(yamlMatch[1]);
-                
-                // 3. Inject Data into DOM
-                document.title = data.title;
-                document.getElementById('hero-title').innerText = data.hero_headline;
-                document.getElementById('hero-subtext').innerText = data.hero_subtext;
-                document.getElementById('hero-img').src = data.doctor_image;
-                document.getElementById('nav-emergency').innerText = `Emergency: ${data.emergency_contact}`;
-                document.getElementById('footer-text').innerText = `© 2024 ${data.title}. All rights reserved.`;
+                // Extract YAML part (between ---)
+                const yamlMatch = text.match(/---\s*[\s\S]*?\s*---/);
+                if (yamlMatch) {
+                    const yamlStr = yamlMatch[0].replace(/---/g, '');
+                    const data = jsyaml.load(yamlStr);
 
-                // Inject Stats
-                const statsHtml = data.stats.map(s => `
-                    <div data-aos="fade-up">
-                        <div class="text-4xl font-bold text-sky-600 mb-2">${s.value}</div>
-                        <div class="text-sm uppercase tracking-wider text-slate-500">${s.label}</div>
-                    </div>
-                `).join('');
-                document.getElementById('stats-container').innerHTML = statsHtml;
-
-                // Inject Services
-                const servicesHtml = data.services.map((s, i) => `
-                    <div data-aos="fade-up" data-aos-delay="${i * 100}" class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100">
-                        <div class="text-4xl mb-6">${s.icon}</div>
-                        <h3 class="text-xl font-bold mb-4 text-slate-900">${s.title}</h3>
-                        <p class="text-slate-500 leading-relaxed">${s.desc}</p>
-                    </div>
-                `).join('');
-                document.getElementById('services-grid').innerHTML = servicesHtml;
-
-                // 4. Reveal Page and Start Animations
-                document.body.style.visibility = 'visible';
-                AOS.init({ duration: 1000, once: true });
-
-            } catch (err) {
-                console.error("CMS Parsing Error:", err);
-                document.body.style.visibility = 'visible';
+                    // Update UI with data
+                    document.title = data.title;
+                    document.getElementById('page-title').innerText = data.title;
+                    document.getElementById('nav-brand').innerText = data.title;
+                    document.getElementById('hero-title').innerText = data.hero_headline;
+                    document.getElementById('hero-desc').innerText = data.hero_subtext;
+                    document.getElementById('emergency-phone').innerText = data.emergency_contact;
+                    document.getElementById('stat-patients').innerText = data.patients_served;
+                    document.getElementById('stat-exp').innerText = data.experience_years;
+                    document.getElementById('doc-img').src = data.doctor_image;
+                    
+                    // Show content
+                    document.getElementById('main-content').classList.add('loaded');
+                    AOS.init({ duration: 1000, once: true });
+                }
+            } catch (error) {
+                console.error("Data loading error:", error);
             }
-        }
+        });
 
-        window.addEventListener('DOMContentLoaded', initPage);
+        // Netlify Identity Redirect
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
     </script>
 </body>
 </html>
