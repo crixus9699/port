@@ -1,15 +1,14 @@
 ---
-experience_years: ১০+
-patients_served: ৫০০০+
-title: Dr Jubair
-emergency_contact: +৮৮০ ১৭০০-০০০০০০
-doctor_image: https://scontent.fdac27-1.fna.fbcdn.net/v/t39.30808-6/386195242_648195000777355_6251192707889210425_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KPgZS8_fVr4Q7kNvwFgxa92&_nc_oc=AdrmtBttTH9eQEYtS0Y9siB8EXXXLCXuqyJVjCpQo4r75kgcIsB1bNII2zJw_-NeQ0E&_nc_zt=23&_nc_ht=scontent.fdac27-1.fna&_nc_gid=meIXuYdj4p1Y3quqkEVq0A&_nc_ss=7b289&oh=00_Af5ys3wgB-MSIIF5C0E7xJdFUOPjR_21AWFMbakyc1BMjA&oe=6A0B9F10
-hero_headline: আপনার সুস্থতাই আমাদের মূল লক্ষ্য
-hero_subtext: একজন অভিজ্ঞ কার্ডিওলজিস্ট হিসেবে আমি গত ১০ বছর ধরে রোগীদের সেবা দিয়ে আসছি।
-stats: []
+title: "ডাঃ জুবায়ের"
+hero_headline: "আপনার সুস্থতাই আমাদের মূল লক্ষ্য"
+hero_subtext: "একজন অভিজ্ঞ কার্ডিওলজিস্ট হিসেবে আমি গত ১০ বছর ধরে রোগীদের সেবা দিয়ে আসছি।"
+doctor_image: "https://scontent.fdac27-1.fna.fbcdn.net/v/t39.30808-6/386195242_648195000777355_6251192707889210425_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=KPgZS8_fVr4Q7kNvwFgxa92&_nc_oc=AdrmtBttTH9eQEYtS0Y9siB8EXXXLCXuqyJVjCpQo4r75kgcIsB1bNII2zJw_-NeQ0E&_nc_zt=23&_nc_ht=scontent.fdac27-1.fna&_nc_gid=meIXuYdj4p1Y3quqkEVq0A&_nc_ss=7b289&oh=00_Af5ys3wgB-MSIIF5C0E7xJdFUOPjR_21AWFMbakyc1BMjA&oe=6A0B9F10"
+emergency_contact: "+৮৮০ ১৭০০-০০০০০০"
+patients_served: "৫০০০+"
+experience_years: "১০+"
 ---
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" style="font-size: 0 !important; color: transparent !important;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,29 +22,37 @@ stats: []
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <style>
-        body { font-family: 'Hind Siliguri', sans-serif; overflow-x: hidden; }
+        /* YAML লুকানোর আসল ট্রিক */
+        html {
+            background-color: #f8fafc; /* স্লেট ৫০ কালার */
+        }
+        body { 
+            font-family: 'Hind Siliguri', sans-serif; 
+            overflow-x: hidden;
+            font-size: 16px !important; /* বডির টেক্সট ফিরিয়ে আনা */
+            color: #1e293b !important; /* বডির কালার ফিরিয়ে আনা */
+            visibility: hidden; /* ডেটা লোড হওয়ার আগে লুকানো থাকবে */
+        }
+        body.loaded {
+            visibility: visible;
+        }
         .glass-nav {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
-        /* CSS to hide raw YAML frontmatter */
-        body > :first-child { display: none; }
-        #main-content { opacity: 0; transition: opacity 0.5s ease-in; }
-        #main-content.loaded { opacity: 1; }
     </style>
 </head>
 <body class="bg-blue-50 text-slate-800">
 
-    <div id="main-content">
+    <div id="wrapper">
         <!-- Navigation -->
         <nav class="fixed w-full z-50 glass-nav">
             <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="text-2xl font-bold text-blue-700 tracking-tight" id="nav-brand">ডাক্তার পোর্টফোলিও</div>
+                <div class="text-2xl font-bold text-blue-700" id="nav-brand">ডাক্তার পোর্টফোলিও</div>
                 <div class="hidden md:flex space-x-8 font-medium">
                     <a href="#hero" class="hover:text-blue-600 transition">হোম</a>
                     <a href="#services" class="hover:text-blue-600 transition">সেবাসমূহ</a>
-                    <a href="#about" class="hover:text-blue-600 transition">আমার সম্পর্কে</a>
                     <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition">অ্যাপয়েন্টমেন্ট</a>
                 </div>
             </div>
@@ -58,10 +65,10 @@ stats: []
                     <h1 id="hero-title" class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-slate-900"></h1>
                     <p id="hero-desc" class="text-lg text-slate-600 mb-8 leading-relaxed"></p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-200 hover:scale-105 transition">যোগাযোগ করুন</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition">যোগাযোগ করুন</a>
                         <div class="flex items-center space-x-3">
                             <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                📞
                             </div>
                             <div>
                                 <p class="text-sm text-slate-500 font-semibold">জরুরী কল</p>
@@ -71,136 +78,58 @@ stats: []
                     </div>
                 </div>
                 <div class="relative" data-aos="zoom-in">
-                    <div class="absolute -z-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-50 -top-10 -right-10"></div>
                     <img id="doc-img" src="" alt="Doctor" class="rounded-3xl shadow-2xl border-8 border-white object-cover w-full h-[500px]">
                 </div>
             </div>
         </section>
 
-        <!-- Stats Counter -->
+        <!-- Stats -->
         <section class="max-w-7xl mx-auto px-4 py-12">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50">
                     <p id="stat-patients" class="text-3xl font-bold text-blue-600"></p>
                     <p class="text-slate-500">রোগী দেখেছেন</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50">
                     <p id="stat-exp" class="text-3xl font-bold text-blue-600"></p>
                     <p class="text-slate-500">অভিজ্ঞতা</p>
                 </div>
-                <!-- Static Stats Example -->
-                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50">
                     <p class="text-3xl font-bold text-blue-600">২৪/৭</p>
-                    <p class="text-slate-500">অনলাইন সাপোর্ট</p>
+                    <p class="text-slate-500">সাপোর্ট</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50" data-aos="fade-up" data-aos-delay="400">
+                <div class="bg-white p-8 rounded-3xl text-center shadow-sm border border-blue-50">
                     <p class="text-3xl font-bold text-blue-600">১০০%</p>
                     <p class="text-slate-500">সততা</p>
                 </div>
             </div>
         </section>
-
-        <!-- Services Grid -->
-        <section id="services" class="py-20 px-4">
+        
+        <!-- Services -->
+        <section id="services" class="py-20 px-4 bg-white/50">
             <div class="max-w-7xl mx-auto text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">আমাদের বিশেষ সেবাসমূহ</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">সেবাসমূহ</h2>
                 <div class="h-1 w-20 bg-blue-600 mx-auto rounded-full"></div>
             </div>
-            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up">
-                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">হৃদরোগ চিকিৎসা</h3>
-                    <p class="text-slate-500 leading-relaxed">উন্নত প্রযুক্তির মাধ্যমে আমরা হৃদরোগের যাবতীয় জটিল সমস্যার সমাধান দিয়ে থাকি।</p>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-white rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <div class="text-4xl mb-4">❤️</div>
+                    <h3 class="text-xl font-bold mb-2">হৃদরোগ চিকিৎসা</h3>
+                    <p class="text-slate-500">উন্নত প্রযুক্তির মাধ্যমে হৃদরোগের চিকিৎসা।</p>
                 </div>
-                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-600 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">জেনারেল চেকআপ</h3>
-                    <p class="text-slate-500 leading-relaxed">সম্পূর্ণ বডি চেকআপ এবং জীবনযাত্রার মানোন্নয়নে সঠিক পরামর্শ প্রদান করি।</p>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <div class="text-4xl mb-4">🩺</div>
+                    <h3 class="text-xl font-bold mb-2">জেনারেল চেকআপ</h3>
+                    <p class="text-slate-500">নিয়মিত বডি চেকআপ এবং পরামর্শ।</p>
                 </div>
-                <div class="bg-white p-10 rounded-3xl hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a2 2 0 00-1.96 1.414l-.727 2.903a2 2 0 01-1.242 1.414 2 2 0 01-2.105-.472l-1.479-1.479a2 2 0 01-.472-2.105 2 2 0 011.414-1.242l2.903-.727a2 2 0 001.414-1.96l-.477-2.387a2 2 0 00-.547-1.022L7.02 4.02L4.02 7.02"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">জরুরী সেবা</h3>
-                    <p class="text-slate-500 leading-relaxed">২৪ ঘণ্টা যেকোনো জরুরী প্রয়োজনে টেলিমেডিসিন এবং চেম্বার সাপোর্ট।</p>
+                <div class="p-8 bg-white rounded-3xl shadow-sm border hover:shadow-md transition">
+                    <div class="text-4xl mb-4">🚑</div>
+                    <h3 class="text-xl font-bold mb-2">জরুরী সেবা</h3>
+                    <p class="text-slate-500">২৪ ঘণ্টা যেকোনো জরুরী প্রয়োজনে সাপোর্ট।</p>
                 </div>
             </div>
         </section>
 
-        <!-- About/Contact Section -->
-        <section id="contact" class="py-20 bg-slate-900 text-white px-4">
-            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-3xl font-bold mb-8">সিরিয়াল নিতে আজই বুক করুন</h2>
-                    <p class="text-slate-400 mb-8 leading-relaxed">আপনার সমস্যা আমাদের জানান, অভিজ্ঞ মেডিকেল টিম দ্রুত আপনার সাথে যোগাযোগ করবে। আমরা আপনার গোপনীয়তা বজায় রাখি।</p>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">📍</div>
-                            <p class="text-slate-300">চেম্বার: ১০২, গ্রিন রোড, ধানমন্ডি, ঢাকা।</p>
-                        </div>
-                    </div>
-                </div>
-                <form class="bg-white p-8 rounded-3xl text-slate-900 shadow-2xl" onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার তথ্য পাঠানো হয়েছে।')">
-                    <div class="grid gap-4">
-                        <input type="text" placeholder="রোগীর নাম" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
-                        <input type="tel" placeholder="ফোন নম্বর" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none">
-                        <textarea placeholder="সমস্যার সংক্ষিপ্ত বিবরণ" rows="4" class="w-full p-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none"></textarea>
-                        <button class="bg-blue-600 text-white p-4 rounded-xl font-bold hover:bg-blue-700 transition">অ্যাপয়েন্টমেন্ট নিশ্চিত করুন</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                // Fetch current file content to parse YAML frontmatter
-                const response = await fetch(window.location.href);
-                const text = await response.text();
-                
-                // Extract YAML part (between ---)
-                const yamlMatch = text.match(/---\s*[\s\S]*?\s*---/);
-                if (yamlMatch) {
-                    const yamlStr = yamlMatch[0].replace(/---/g, '');
-                    const data = jsyaml.load(yamlStr);
-
-                    // Update UI with data
-                    document.title = data.title;
-                    document.getElementById('page-title').innerText = data.title;
-                    document.getElementById('nav-brand').innerText = data.title;
-                    document.getElementById('hero-title').innerText = data.hero_headline;
-                    document.getElementById('hero-desc').innerText = data.hero_subtext;
-                    document.getElementById('emergency-phone').innerText = data.emergency_contact;
-                    document.getElementById('stat-patients').innerText = data.patients_served;
-                    document.getElementById('stat-exp').innerText = data.experience_years;
-                    document.getElementById('doc-img').src = data.doctor_image;
-                    
-                    // Show content
-                    document.getElementById('main-content').classList.add('loaded');
-                    AOS.init({ duration: 1000, once: true });
-                }
-            } catch (error) {
-                console.error("Data loading error:", error);
-            }
-        });
-
-        // Netlify Identity Redirect
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+        <!-- Footer Contact -->
+        <section id="contact" class="py-10 bg-slate-900 text-white text-center">
+            <p>© <span id="
